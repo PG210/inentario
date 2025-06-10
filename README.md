@@ -13,7 +13,7 @@ Este proyecto es una API desarrollada con Laravel para gestionar usuarios, produ
 ### Instalación
 
 - Abre la terminar y clona el repositorio :
-   git clone https://github.com/tu-usuario/tu-repo.git
+   git clone https://github.com/PG210/inentario.git
 
 ### Instalación de dependencias
 
@@ -40,11 +40,15 @@ php artisan migrate
 
 php artisan db:seed
 
+### Regenerar la documentación Swagger
+
+php artisan l5-swagger:generate
+
 ### Iniciar el servidor
 
 php artisan serve
 
-## Cómo importar y usar la colección Postman o el archivo Swagger.
+## 2. Cómo importar y usar la colección Postman o el archivo Swagger.
 
 En este caso se utilizó Swagger, acontinuación se decribe los pasos para utilizarlo.
 
@@ -62,9 +66,9 @@ En este caso se utilizó Swagger, acontinuación se decribe los pasos para utili
 ## URL pública de despliegue
 
 El proyecto se encuentra dispobible en: 
-Documentación de Swagger: http://localhost:8000/api/documentation
+Documentación de Swagger: https://inventario.approyectos.site/
 
-## Decisiones de diseño
+## 3. Decisiones de diseño
 
 ### Elección de enum vs tabla de roles.
 
@@ -82,4 +86,26 @@ Se creo un middleware personalizado denominado (admin), permitiendo un manejo de
 - Se creo un seeder que genera un usuario con el rol admin (email: admin@gmail.com y password: 1234), este usuario inicial facilita el acceso al sistema en entornos de desarrollo y pruebas.
 - Se creo el middleware (admin) para proteger los endpoints (Store, Update, Destroy).
 - Se ajustaron los mensajes de respuesta.
+
+## Información de Despliegue
+
+- La aplicación se desplego en Hostinger utilizando los siguientes pasos:
+- 1. Se creo el subdominio https://inventario.approyectos.site/ y la carpeta interna apuntando a public
+- 2. Fue creada la base de datos con: nombre DB, usuario DB y contraseña.
+- 3. Se realizó la conexión a través de SSH al servidor y se hizo copia del repositorio de github.
+- 4. Fueron instaladas las dependencias requeridas para levantar el proyecto.
+- 5. Se ejecutaron la migración de las tablas y se actualizó la documentación.
+- 6. Modificación del archivo .env con los ajustes requeridos para producción y la base de datos
+      APP_NAME=Laravel
+      APP_ENV=production
+      APP_KEY=base64:Key
+      APP_DEBUG=false
+      APP_URL=https://inventario.approyectos.site
+- 7. Modificación del archivo config/cors.php en la linea 'allowed_origins' => ['https://inventario.approyectos.site/'], esto con fin de mantener la seguridad del sitio y acepte las peticiones Http o Https.
+- 8. Modificación del archivo storage/api-docs/api-docs.json en la linea:
+     "url": "https://inventario.approyectos.site/",
+     "description": "production"
+
+- 9. Pruebas de funcionamiento a nivel de cada enpoint.
+
 
