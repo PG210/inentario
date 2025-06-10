@@ -89,18 +89,18 @@ Se creo un middleware personalizado denominado (admin), permitiendo un manejo de
 
 ## Información de Despliegue
 
-- La aplicación se desplego en Hostinger utilizando los siguientes pasos:
+La aplicación se desplego en Hostinger utilizando los siguientes pasos:
 - 1. Se creo el subdominio https://inventario.approyectos.site/ y la carpeta interna apuntando a public
 - 2. Fue creada la base de datos con: nombre DB, usuario DB y contraseña.
 - 3. Se realizó la conexión a través de SSH al servidor y se hizo copia del repositorio de github.
 - 4. Fueron instaladas las dependencias requeridas para levantar el proyecto.
 - 5. Se ejecutaron la migración de las tablas y se actualizó la documentación.
 - 6. Modificación del archivo .env con los ajustes requeridos para producción y la base de datos
-      APP_NAME=Laravel
-      APP_ENV=production
-      APP_KEY=base64:Key
-      APP_DEBUG=false
-      APP_URL=https://inventario.approyectos.site
+      - APP_NAME=Laravel
+      - APP_ENV=production
+      - APP_KEY=base64:Key
+      - APP_DEBUG=false
+      - APP_URL=https://inventario.approyectos.site
 - 7. Modificación del archivo config/cors.php en la linea 'allowed_origins' => ['https://inventario.approyectos.site/'], esto con fin de mantener la seguridad del sitio y acepte las peticiones Http o Https.
 - 8. Modificación del archivo storage/api-docs/api-docs.json en la linea:
      "url": "https://inventario.approyectos.site/",
