@@ -28,9 +28,9 @@ Este proyecto es una API desarrollada con Laravel para gestionar usuarios, produ
 
 ### Configurar la BD en .env
 
-DB_DATABASE=inventary
-DB_USERNAME=root
-DB_PASSWORD=
+- DB_DATABASE=inventary
+- DB_USERNAME=root
+- DB_PASSWORD=
 
 ### Migrar la Base de datos
 
